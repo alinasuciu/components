@@ -2,7 +2,7 @@ version: 2.1
 
 executors:
   node-fermium-executor:
-    working_directory: ~/webex-components
+    working_directory: ~/components
     docker:
       - image: circleci/node:fermium
 
@@ -43,6 +43,17 @@ jobs:
           command: npm run test:coverage
       - store_test_results:
           path: test_results
+
+  chromatic-deployment: 
+    executor: node-fermium-executor
+    steps:
+      - checkout
+      - restore_cache:
+          keys:
+            - v1-dependencies-{{ checksum "package.json" }}
+            - v1-dependencies-
+      - run: npx npm-install-peers
+      - run: npm run chromatic
 
   build:
     executor: node-fermium-executor
@@ -121,3 +132,4 @@ workflows:
           filters:
             branches:
               only: master
+      - chromatic-deployment
