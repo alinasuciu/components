@@ -44,6 +44,18 @@ jobs:
       - store_test_results:
           path: test_results
 
+  chromatic: 
+    docker:
+      - image: circleci/node:12
+    working_directory: ~/repo
+    steps:
+      - checkout
+      - restore_cache:
+          keys:
+            - v1-dependencies-{{ checksum "package.json" }}
+            - v1-dependencies-
+      - run: npm chromatic --project-token=${CHROMATIC_PROJECT_TOKEN}
+
   build:
     executor: node-fermium-executor
     steps:
@@ -121,3 +133,4 @@ workflows:
           filters:
             branches:
               only: master
+      - chromatic
