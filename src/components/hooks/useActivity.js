@@ -20,6 +20,8 @@ export default function useActivity(activityID) {
   const [activity, setActivity] = useState({});
   const {activitiesAdapter} = useContext(AdapterContext);
 
+  console.log('testing nothing');
+
   useEffect(() => {
     const onError = (error) => {
       throw error;
