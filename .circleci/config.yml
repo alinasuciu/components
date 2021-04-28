@@ -44,7 +44,7 @@ jobs:
       - store_test_results:
           path: test_results
 
-  chromatic: 
+  chromatic-deployment: 
     docker:
       - image: circleci/node:12
     working_directory: ~/repo
@@ -133,4 +133,8 @@ workflows:
           filters:
             branches:
               only: master
-      - chromatic
+  chromatic-deploy:
+    jobs:
+      - chromatic-deployment:
+        requires:
+            - install
