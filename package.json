@@ -16,7 +16,7 @@
     "test": "jest",
     "test:watch": "jest --watch",
     "test:coverage": "jest --coverage",
-    "chromatic": "chromatic --project-token 79723ccb1e7b --exit-zero-on-changes"
+    "chromatic": "chromatic"
   },
   "repository": {
     "type": "git",
