@@ -29,7 +29,7 @@ AllMedia.args = {
   meetingID: 'meeting2',
 };
 
-export const Sharing1 = Template.bind({});
-Sharing1.args = {
+export const Sharing = Template.bind({});
+Sharing.args = {
   meetingID: 'meeting1',
 };
