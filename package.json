@@ -15,7 +15,8 @@
     "storybook:build": "build-storybook -s ./docs/assets -o ./docs/storybook",
     "test": "jest",
     "test:watch": "jest --watch",
-    "test:coverage": "jest --coverage"
+    "test:coverage": "jest --coverage",
+    "chromatic": "chromatic --project-token CHROMATIC_PROJECT_TOKEN --exit-zero-on-changes"
   },
   "repository": {
     "type": "git",

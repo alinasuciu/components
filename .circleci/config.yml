@@ -54,7 +54,8 @@ jobs:
           keys:
             - v1-dependencies-{{ checksum "package.json" }}
             - v1-dependencies-
-      - run: npm chromatic --project-token=${CHROMATIC_PROJECT_TOKEN}
+      - run: npx npm-install-peers
+      - run: npm run chromatic
 
   build:
     executor: node-fermium-executor
@@ -135,6 +136,4 @@ workflows:
               only: master
   chromatic-deploy:
     jobs:
-      - chromatic-deployment:
-        requires:
-            - install
+      - chromatic-deployment
