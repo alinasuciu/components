@@ -28,7 +28,6 @@ export default function useActivity(activityID) {
 
     return () => {
       subscription.unsubscribe();
-      console.log('gggg');
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
