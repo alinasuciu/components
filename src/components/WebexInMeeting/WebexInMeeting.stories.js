@@ -29,8 +29,8 @@ AllMedia.args = {
   meetingID: 'meeting2',
 };
 
-export const LocalShare1 = Template.bind({});
-LocalShare1.args = {
+export const LocalShare = Template.bind({});
+LocalShare.args = {
   meetingID: 'meeting1',
 };
 
